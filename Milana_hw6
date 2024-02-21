@@ -1,0 +1,40 @@
+def buble_sort(list1):
+    for i in range(0, len(list1) - 1):
+        for j in range(len(list1) - 1):
+            if (list1[j] > list1[j + 1]):
+                temp = list1[j]
+                list1[j] = list1[j + 1]
+                list1[j + 1] = temp
+
+    return list1
+
+
+list1 = [3, 17, 29, 81, 5, 9, 2]
+print(buble_sort(list1))
+
+
+def binary_search(A, val):
+    first = 0
+    last = len(A) - 1
+    pos = None
+
+    while first <= last:
+        middle = (first + last) // 2
+        if val == A[middle]:
+            pos = middle
+            break
+        elif val > A[middle]:
+            first = middle + 1
+        else:
+            last = middle - 1
+
+    if pos is not None:
+        return f"Элемент {val} найден в позиции: {pos}"
+    else:
+        return f"Элемент {val} не найден"
+
+
+A = list1
+
+print(binary_search(A, 3))
+print(binary_search(A, 29))
